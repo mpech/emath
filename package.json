@@ -1,0 +1,18 @@
+{
+  "name": "emath",
+  "version": "0.0.1",
+  "description": "plot graphic from geometric instructions for highscool studs",
+  "author": {
+    "name": "mpech"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mpech/emath.git"
+  },
+  "dependencies": {
+    "nodeunit": "*",
+    "grammarParser":"mpech/grammarParser"
+  },
+  "_id": "emath@0.0.1",
+  "readme":"npm warning :)"
+}

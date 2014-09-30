@@ -1,0 +1,19 @@
+instructionGroup+:instruction;
+
+#this macro is replaced by grammar string of each instruction
+INSTRUCTIONS
+
+# Define there what could be useful for other instructions
+bipoint:_P,_P;
+bipointLine:_openParenthesis,bipoint,_closeParenthesis;
+line:bipointLine;
+line:_alias;
+_P:[A-Z];
+_commaWs:^\s*,\s*;
+_comma:^,;
+_equalWs:^\s*=+\s*;
+_number:^\d;
+_alias:^[a-z][a-z0-9]*;
+_openParenthesis:^\(;
+_closeParenthesis:^\);
+_conditionToken:^\s*[,;]\s*;

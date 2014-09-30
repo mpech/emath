@@ -1,0 +1,11 @@
+instruction:triangle;
+triangle:_P,_P,_P,triangle_anyCondition;
+triangle_anyCondition:_commaWs,triangle_conditionGroup;
+triangle_anyCondition:null;
+triangle_conditionGroup +:triangle_condition,_conditionToken;
+triangle_condition:triangle_number;
+triangle_condition:triangle_bipoint;
+triangle_condition:triangle_perp;
+triangle_number:bipoint,_equalWs,_number;
+triangle_bipoint:bipoint,_equalWs,bipoint;
+triangle_perp:bipointLine,_plusWs,bipointLine;
