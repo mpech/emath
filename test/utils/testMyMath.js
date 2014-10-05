@@ -59,3 +59,10 @@ exports.areColinear = function(test){
   test.ok(MyMath.areColinear(A, A));
   test.done();
 };
+exports.ortho = function(test){
+  var A = MyMath.P(1,4),
+    O = MyMath.ortho(A);
+  test.ok(MyMath.eq (MyMath.scal(A, O), 0) ) ;
+  test.ok(!MyMath.eq (MyMath.scal(A, A), 0) ) ;
+  test.done();
+};
