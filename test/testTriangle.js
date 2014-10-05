@@ -1,9 +1,10 @@
-var triangle = require('../lib/triangle'),
-  grammarParser = require('grammarParser');
+var grammarParser = require('grammarParser'),
+  rek = require('rekuire'),
+  triangleModule = rek('lib/instructions/triangle');
   
 
 exports.readGrammar = function(test){
-  test.ok(triangle.getGrammar().length>10);
+  test.ok(triangleModule.getGrammar().length>10);
   test.done();
 };
 exports.testInstance = function(test){  
@@ -13,17 +14,17 @@ exports.testInstance = function(test){
       this.value = b;
     }
   }
-  triangle.registerTo(obj);
+  triangleModule.registerTo(obj);
   test.ok(obj.value() instanceof grammarParser.Node);
   test.done();
 };
 exports.checkCondition = function(test){
-  var instance = new triangle.Triangle('bob',[]);
+  var instance = new triangleModule.Triangle('bob',[]);
   test.ok(instance.checkCondition([]));
   test.done();
 }
 exports.checkPerp = function(test){
-  var instance = new triangle.Triangle('bob',[
+  var instance = new triangleModule.Triangle('bob',[
     new grammarParser.Node('triangle_perp',[]),
     new grammarParser.Node('triangle_perp',[])
   ]);
@@ -33,7 +34,7 @@ exports.checkPerp = function(test){
   test.done();
 }
 exports.checkDefTooManyMesures = function(test){
-  var instance = new triangle.Triangle('bob',[
+  var instance = new triangleModule.Triangle('bob',[
     new grammarParser.Node('triangle_bipoint',[]),
     new grammarParser.Node('triangle_bipoint',[]),
     new grammarParser.Node('triangle_mesure',[]),
@@ -47,7 +48,7 @@ exports.checkDefTooManyMesures = function(test){
 
 exports.checkDefTooManyPoints = function(test){
 
-  var instance = new triangle.Triangle('bob',[
+  var instance = new triangleModule.Triangle('bob',[
     new grammarParser.TerminalNode('_P','A'),
     new grammarParser.TerminalNode('_P','B'),
     new grammarParser.TerminalNode('_P','C'),
@@ -60,6 +61,6 @@ exports.checkDefTooManyPoints = function(test){
   test.done(); 
 }
 
-exports.solve = function(pool){
+exports.solve = function(test){
   test.done();
 }

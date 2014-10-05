@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "nodeunit": "*",
-    "grammarParser":"mpech/grammarParser"
+    "grammarParser":"mpech/grammarParser",
+    "rekuire":"*"
   },
   "_id": "emath@0.0.1",
   "readme":"npm warning :)"
