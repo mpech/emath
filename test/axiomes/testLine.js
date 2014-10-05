@@ -60,7 +60,7 @@ exports.intersectSecantLine = function(test){
   test.done();
 };
 
-exports.intersectCircleOnePoint = function(test){
+exports.intersectLineCircleOnePoint = function(test){
   var line = new Line({
     A:MyMath.P(0,0),
     v:MyMath.P(0,1)
@@ -74,7 +74,7 @@ exports.intersectCircleOnePoint = function(test){
   test.ok(MyMath.eq(r[0], MyMath.P(0,1)));
   test.done();
 };
-exports.intersectCircleTwoPoint = function(test){
+exports.intersectLineCircleTwoPoint = function(test){
   var line = new Line({
     A:MyMath.P(0,0),
     v:MyMath.P(0,1)
@@ -90,7 +90,7 @@ exports.intersectCircleTwoPoint = function(test){
   test.done();
 };
 
-exports.intersectCircleNoPoint = function(test){
+exports.intersectLineCircleNoPoint = function(test){
   var line = new Line({
     A:MyMath.P(0,0),
     v:MyMath.P(0,1)

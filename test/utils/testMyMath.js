@@ -66,3 +66,9 @@ exports.ortho = function(test){
   test.ok(!MyMath.eq (MyMath.scal(A, A), 0) ) ;
   test.done();
 };
+exports.rotate = function(test){
+  var A = MyMath.P(1,2),
+    O = MyMath.rotate(A, Math.PI/2);
+  test.ok(MyMath.eq (O, MyMath.P(-2, 1)));
+  test.done();
+};
