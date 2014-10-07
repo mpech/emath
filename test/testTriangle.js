@@ -1,6 +1,7 @@
 var grammarParser = require('grammarParser'),
   rek = require('rekuire'),
-  triangleModule = rek('lib/instructions/triangle');
+  triangleModule = rek('lib/instructions/triangle'),
+  Node = rek('Node');
   
 
 exports.readGrammar = function(test){
@@ -15,7 +16,7 @@ exports.testInstance = function(test){
     }
   }
   triangleModule.registerTo(obj);
-  test.ok(obj.value() instanceof grammarParser.Node);
+  test.ok(obj.value() instanceof Node);
   test.done();
 };
 exports.checkCondition = function(test){
