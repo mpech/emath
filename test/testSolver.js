@@ -2,7 +2,7 @@ var rek = require('rekuire'),
   fs = require('fs'),
   solver = rek('lib/solver'),
   parser = rek('lib/parser'),
-  Pool = rek('lib/pool'),
+  Pool = rek('lib/Pool'),
   $ = rek('lib/utils/$');
   
 exports.checkInstruction = function(test){
