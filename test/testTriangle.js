@@ -106,6 +106,26 @@ exports.simplifyEqSide = function(test){
   test.done()
 }
 
+exports.removeEqNumberWith = function(test){
+  var A = new grammarParser.TerminalNode('_P','A'), 
+      B = new grammarParser.TerminalNode('_P','B');
+
+  var instance = new triangleModule.Triangle('triangle_conditionGroup',[
+    new Node('triangle_condition', [
+      new TriangleNumber('triangle_number', [ 
+        new Bipoint('bipoint', [A,B]),
+        new _Number('_number', '4')
+      ])
+    ])
+  ]);
+  var nf = grammarParser.NodeFactory();
+  triangleModule.registerTo(nf);
+  instance.removeEqNumberWith(new Bipoint('bipoint', [B,A]));
+  test.equal($(instance).find('triangle_number').coll().length, 0);
+  test.done();
+}
+
+
 exports.AB = function(test){
   var A = new grammarParser.TerminalNode('_P','A');
   var B = new grammarParser.TerminalNode('_P','B');
@@ -130,29 +150,12 @@ exports.AB = function(test){
     ])
   ]);
   var pool = new Pool();
-  pool.store(new Point(A, MyMath.P(0,0,0)));
+  var pA = new Point(A, MyMath.P(0,0,0));
+  pool.store(pA);
   pool.store(new Point(B, MyMath.P(1,0,0)));
   var nf = grammarParser.NodeFactory();
   bipointModule.registerTo(nf);
   triangleModule.registerTo(nf);
   instance.AB(pool, A, B);
   test.done();//to continue
-}
-exports.removeEqNumberWith = function(test){
-  var A = new grammarParser.TerminalNode('_P','A'), 
-      B = new grammarParser.TerminalNode('_P','B');
-
-  var instance = new triangleModule.Triangle('triangle_conditionGroup',[
-    new Node('triangle_condition', [
-      new TriangleNumber('triangle_number', [ 
-        new Bipoint('bipoint', [A,B]),
-        new _Number('_number', '4')
-      ])
-    ])
-  ]);
-  var nf = grammarParser.NodeFactory();
-  triangleModule.registerTo(nf);
-  instance.removeEqNumberWith(new Bipoint('bipoint', [B,A]));
-  test.equal($(instance).find('triangle_number').coll().length, 0);
-  test.done();
 }

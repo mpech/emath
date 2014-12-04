@@ -1,7 +1,8 @@
 var fs = require('fs'),
   rek = require('rekuire'),
   $ = rek('$'),
-  parser = rek('lib/parser');
+  parser = rek('lib/parser'),
+  grammarParser = require('grammarParser');
 
 exports.concatGrams = function(test){
   var fname = __dirname+'/data/commonGram.txt',
@@ -26,17 +27,11 @@ exports.find = function(test){
   parser.parseIt(gramStr, 'ABC, AB=5,', function(err, data){
     var o = $(data);
     var y=[];
-    o.find(/^_number$/).each(function(x){
+    o.find(/^_number/).each(function(x){
       y.push(x);
     });
     test.equal(y.length, 1);
-    test.equal(y[0].s, 5);
-    var z = [];
-    o.find('_number').each(function(x){
-      z.push(x);
-    });
-    test.equal(z.length, 1);
-    test.equal(z[0].s, 5);
+    test.equal(y[0].value(), 5);
     test.done();
   })
 };

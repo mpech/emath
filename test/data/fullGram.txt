@@ -20,7 +20,7 @@ _P:[A-Z];
 _commaWs:^\s*,\s*;
 _comma:^,;
 _equalWs:^\s*=+\s*;
-_number:^\d;
+_number:^\d+(\.\d+)?;
 _alias:^[a-z][a-z0-9]*;
 _openParenthesis:^\(;
 _closeParenthesis:^\);
